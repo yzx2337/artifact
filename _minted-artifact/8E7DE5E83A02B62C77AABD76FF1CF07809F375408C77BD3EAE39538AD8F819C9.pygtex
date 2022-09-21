@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYGZdl{}./ycsb run basic \PYGZhy{}P workloada \PYGZgt{} trace\PYGZus{}a.csv
+\PYGZdl{}./db\PYGZus{}bench \PYGZhy{}\PYGZhy{}csv\PYG{o}{=}\PYG{l+m}{1} \PYGZhy{}\PYGZhy{}trace\PYGZus{}dir\PYG{o}{=}../trace
+\PYGZhy{}\PYGZhy{}benchmarks\PYG{o}{=}workloada \PYGZhy{}\PYGZhy{}value\PYGZus{}size\PYG{o}{=}\PYG{l+m}{64}
+\PYGZhy{}\PYGZhy{}nvm\PYGZus{}dir\PYG{o}{=}/mnt/pmem0dir\PYGZhy{}node0/pool
+\PYGZhy{}\PYGZhy{}nvm\PYGZus{}size\PYG{o}{=}\PYG{l+m}{20480} \PYGZhy{}\PYGZhy{}threads\PYG{o}{=}\PYG{l+m}{1}
+\PYGZhy{}\PYGZhy{}db\PYG{o}{=}/mnt/pmem0dir\PYGZhy{}node0/dbbench
+\PYGZhy{}\PYGZhy{}write\PYGZus{}buffer\PYGZus{}size\PYG{o}{=}\PYG{l+m}{4294967296}
+\end{Verbatim}

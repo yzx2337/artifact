@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYGZdl{} ./ycsbc \PYGZhy{}db novelsm \PYGZhy{}path /mnt/pmem0dir\PYGZhy{}node0/
+\PYGZhy{}threads \PYG{l+m}{1} \PYGZhy{}P workloads/workloada.spec
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYGZdl{} ./db\PYGZus{}bench \PYGZhy{}\PYGZhy{}benchmarks\PYG{o}{=}fillrandom,readrandom
+\PYGZhy{}\PYGZhy{}threads\PYG{o}{=}\PYG{l+m}{1} \PYGZhy{}\PYGZhy{}num\PYG{o}{=}\PYG{l+m}{1000000} \PYGZhy{}\PYGZhy{}value\PYGZus{}size\PYG{o}{=}\PYG{l+m}{64}
+\PYGZhy{}\PYGZhy{}nvm\PYGZus{}dir\PYG{o}{=}/mnt/pmem0dir\PYGZhy{}node0/dbbench
+\end{Verbatim}
