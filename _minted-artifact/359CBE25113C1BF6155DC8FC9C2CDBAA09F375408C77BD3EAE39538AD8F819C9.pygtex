@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-  \PYGZdl{} wget https://github.com/DICL/CCEH/tree/master/
-  CCEH\PYGZhy{}PMDK
-  \PYGZdl{} wget https://github.com/pmdk/dash
-  \PYGZdl{} wget https://github.com/chenzhangyu/Clevel\PYGZhy{}Hashing
-\end{Verbatim}

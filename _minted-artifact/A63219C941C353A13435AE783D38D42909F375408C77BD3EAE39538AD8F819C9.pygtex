@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-  \PYGZdl{} wget https://github.com/intel/intel\PYGZhy{}cmt\PYGZhy{}cat
-  \PYGZdl{} wget https://github.com/pmem/ndctl
-  \PYGZdl{} wget https://github.com/intel/ipmctl
-  \PYGZdl{} wget https://github.com/intel/intel\PYGZhy{}pmwatch
-  \PYGZdl{} wget https://github.com/pmem/pmdk
-\end{Verbatim}
