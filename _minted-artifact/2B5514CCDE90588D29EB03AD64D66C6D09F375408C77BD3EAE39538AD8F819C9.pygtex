@@ -1,0 +1,37 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{\PYGZsh{}!/bin/bash}
+  \PYG{n+nv}{dir}\PYG{o}{=}/mnt/pmem1\PYGZhy{}node0/pool1
+  \PYG{n+nv}{perf\PYGZus{}dir}\PYG{o}{=}./insert\PYGZus{}perf/
+  \PYG{n+nv}{loadsize}\PYG{o}{=}\PYG{l+m}{50000000}
+  \PYG{n+nv}{runsize}\PYG{o}{=}\PYG{l+m}{50000000}
+  \PYG{n+nv}{FLAG}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}mavx \PYGZhy{}mavx2 \PYGZhy{}mavx512f \PYGZhy{}mavx512bw \PYGZhy{}mavx512vl\PYGZsq{}}
+
+  g++ \PYGZhy{}O3 \PYGZhy{}std\PYG{o}{=}c++17 \PYGZhy{}I./ \PYGZhy{}lrt \PYGZhy{}c \PYGZhy{}o src/ElimDA.o \PYGZhy{}g \PYG{l+s+se}{\PYGZbs{}}
+  src/ElimDA.cpp \PYGZhy{}DINPLACE \PYGZhy{}lpmemobj \PYGZhy{}lpmem \PYG{l+s+se}{\PYGZbs{}}
+  \PYG{n+nv}{\PYGZdl{}FLAG} \PYGZhy{}lprofiler \PYGZhy{}lunwind
+
+  g++ \PYGZhy{}O3 \PYGZhy{}std\PYG{o}{=}c++17 \PYGZhy{}I./ \PYGZhy{}lrt  \PYGZhy{}o bin/run\PYGZus{}all\PYGZus{}ycsb \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZhy{}g src/run\PYGZus{}all\PYGZus{}ycsb.cpp src/ElimDA.o include/dlock.o  \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZhy{}lpmemobj \PYGZhy{}lpmem \PYGZhy{}lpthread \PYGZhy{}DMULTITHREAD \PYGZhy{}lpqos
+
+  \PYG{n+nv}{outdir}\PYG{o}{=}ycsb\PYGZus{}all
+  \PYG{k}{for} \PYG{n+nb}{test} \PYG{k}{in} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{3} \PYG{l+m}{4}
+  \PYG{k}{do}
+      \PYG{k}{for} oper \PYG{k}{in} \PYG{l+s+s2}{\PYGZdq{}w50r50.txt\PYGZdq{}} \PYG{l+s+s2}{\PYGZdq{}u50r50.txt\PYGZdq{}} \PYG{l+s+s2}{\PYGZdq{}w5r95.txt\PYGZdq{}} \PYG{l+s+s2}{\PYGZdq{}u5r95.txt\PYGZdq{}}
+      \PYG{k}{do}
+          \PYG{k}{for} num \PYG{k}{in} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{4} \PYG{l+m}{8} \PYG{l+m}{16} \PYG{l+m}{24}
+          \PYG{k}{do}
+              \PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}} \PYGZgt{}\PYGZgt{} \PYG{n+nv}{\PYGZdl{}outdir}
+              \PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}test zipfian  \PYGZdq{}}\PYG{n+nv}{\PYGZdl{}num}\PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}}\PYG{n+nv}{\PYGZdl{}oper} \PYGZgt{}\PYGZgt{} \PYG{n+nv}{\PYGZdl{}outdir}
+              \PYG{n+nv}{ycsb\PYGZus{}dir}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}../ycsb/zipfian/\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}oper}
+              \PYG{n+nv}{load\PYGZus{}dir}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}../ycsb/zipfian/load.txt\PYGZdq{}}
+              rm \PYGZhy{}rf \PYG{n+nv}{\PYGZdl{}dir}
+
+              numactl \PYGZhy{}N \PYG{l+m}{0} \PYGZhy{}m \PYG{l+m}{0} \PYG{l+s+se}{\PYGZbs{}}
+              ./bin/run\PYGZus{}all\PYGZus{}ycsb \PYG{n+nv}{\PYGZdl{}dir} \PYG{n+nv}{\PYGZdl{}loadsize} \PYG{n+nv}{\PYGZdl{}runsize}
+              \PYG{n+nv}{\PYGZdl{}num} \PYG{n+nv}{\PYGZdl{}ycsb\PYGZus{}dir} \PYG{n+nv}{\PYGZdl{}load\PYGZus{}dir}
+              \PYG{p}{|}grep \PYGZhy{}a \PYGZhy{}E \PYG{l+s+s2}{\PYGZdq{}num|Ops|Start\PYGZdq{}} \PYGZgt{}\PYGZgt{} \PYG{n+nv}{\PYGZdl{}outdir}
+          \PYG{k}{done}
+      \PYG{k}{done}
+  \PYG{k}{done}
+\end{Verbatim}

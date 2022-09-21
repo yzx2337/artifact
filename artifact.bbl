@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{Zuo20}
+Zhangyu Chen, Yu~Hua, Bo~Ding, and Pengfei Zuo.
+\newblock Lock-free concurrent level hashing for persistent memory.
+\newblock In {\em 2020 USENIX Annual Technical Conference (USENIX ATC 20)},
+  pages 799--812, 2020.
+
+\bibitem{Lu20}
+Baotong Lu, Xiangpeng Hao, Tianzheng Wang, and Eric Lo.
+\newblock Dash: Scalable hashing on persistent memory.
+\newblock {\em Proceedings of the VLDB Endowment}, pages 1147--1161, 2020.
+
+\bibitem{Nam19}
+Moohyeon Nam, Hokeun Cha, Young-ri Choi, Sam~H Noh, and Beomseok Nam.
+\newblock Write-optimized dynamic hashing for persistent memory.
+\newblock In {\em 17th USENIX Conference on File and Storage Technologies (FAST
+  19)}, pages 31--44, 2019.
+
+\bibitem{Zuo18}
+Pengfei Zuo, Yu~Hua, and Jie Wu.
+\newblock Write-optimized and high-performance hashing index scheme for
+  persistent memory.
+\newblock In {\em 13th USENIX Symposium on Operating Systems Design and
+  Implementation (OSDI 18)}, pages 461--476, 2018.
+
+\end{thebibliography}

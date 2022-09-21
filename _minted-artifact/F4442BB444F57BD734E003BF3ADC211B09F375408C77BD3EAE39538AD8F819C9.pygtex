@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{\PYGZsh{}!/bin/bash}
+  \PYGZdl{} ycsb load basic \PYGZhy{}P uniformworkload \PYGZgt{} uniform/load.text
+  \PYGZdl{} ycsb run basic \PYGZhy{}P insertworkload \PYGZgt{} uniform/insert.text
+\end{Verbatim}
